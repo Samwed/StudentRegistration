@@ -1,0 +1,149 @@
+Create database StudentRegistration;
+
+use StudentRegistration;
+
+Create table Students
+(
+Id INT PRIMARY KEY AUTO_INCREMENT,
+FirstName VARCHAR(100),
+MiddleName VARCHAR(100),
+LastName VARCHAR(100),
+MotherName VARCHAR(100),
+Gender varchar(10),
+MobileNumber varchar(20),
+Email varchar(50),
+DateOfBirth date,
+Address varchar(200)
+Admission_Type varchar(100),
+Registration_Number varchar(100),
+Ranking varchar(100),
+Branch varchar(100),
+Category varchar(100),
+Admission_year varchar(100)
+)
+
+
+---Create Stored Procedure---
+--For Create---
+
+DELIMITER //
+
+CREATE PROCEDURE AddStudent(
+    IN p_FirstName VARCHAR(100),
+    IN p_MiddleName VARCHAR(100),
+    IN p_LastName VARCHAR(100),
+    IN p_MotherName VARCHAR(100),
+    IN p_Gender VARCHAR(10),
+    IN p_MobileNumber VARCHAR(20),
+    IN p_Email VARCHAR(50),
+    IN p_DateOfBirth DATE,
+    IN p_Address TEXT,
+    IN p_Admission_Type VARCHAR(100),
+    IN p_Registration_number VARCHAR(100),
+    IN p_Ranking VARCHAR(100),
+    IN p_Category VARCHAR(100),
+    IN p_Branch VARCHAR(100),
+    IN p_Admission_Year(100)
+
+)
+BEGIN
+    INSERT INTO Students (FirstName, MiddleName, LastName, MotherName, Gender, MobileNumber, Email, DateOfBirth, Address, Admission_Type, Registration_Number,Ranking,Category,Branch,Admission_year)
+    VALUES (p_FirstName, p_MiddleName, p_LastName, p_MotherName, p_Gender, p_MobileNumber, p_Email, p_DateOfBirth, p_Address,p_Admission_Type,p_Registration_Number,p_Ranking,p_Category,p_Branch,p_Admission_year);
+END //
+
+DELIMITER ;
+
+
+-----For Update s---
+DELIMITER //
+
+CREATE PROCEDURE UpdateStudent(
+    IN p_Id INT,
+    IN p_FirstName VARCHAR(100),
+    IN p_MiddleName VARCHAR(100),
+    IN p_LastName VARCHAR(100),
+    IN p_MotherName VARCHAR(100),
+    IN p_Gender VARCHAR(10),
+    IN p_MobileNumber VARCHAR(20),
+    IN p_Email VARCHAR(50),
+    IN p_DateOfBirth DATE,
+    IN p_Address TEXT,
+    IN p_Admission_Type VARCHAR(100),
+    IN p_Registration_Number VARCHAR(100),
+    IN p_Ranking VARCHAR(100),
+    IN p_Category VARCHAR(100),,
+    IN p_Branch VARCHAR(100),
+    IN p_Admission_year VARCHAR(100)
+
+)
+BEGIN
+    UPDATE Students 
+    SET 
+        FirstName = p_FirstName,
+        MiddleName = p_MiddleName,
+        LastName = p_LastName,
+        MotherName = p_MotherName,
+        Gender = p_Gender,
+        MobileNumber = p_MobileNumber,
+        Email = p_Email,
+        DateOfBirth = p_DateOfBirth,
+        Address = p_Address,
+        Admission_Type  ,p_Admission_Type,
+        Registration_Nuber = p_Registration_Number,
+        Ranking = p_Ranking,
+        Category = p_Category,
+        Branch = p_Branch,
+        Admission_Year = p_Admission_year
+
+    WHERE Id = p_Id;
+END //
+
+DELIMITER ;
+
+
+---For Delete-----
+DELIMITER //
+
+CREATE PROCEDURE DeleteStudent(
+    IN p_Id INT
+)
+BEGIN
+    DELETE FROM Students WHERE Id = p_Id;
+END //
+
+DELIMITER ;
+
+
+----For Index---
+
+DELIMITER //
+
+CREATE PROCEDURE GetAllStudents()
+BEGIN
+    SELECT * FROM Students;
+END //
+
+DELIMITER ;
+
+
+----For Edit----
+DELIMITER //
+
+CREATE PROCEDURE GetStudentById(
+    IN p_Id INT
+)
+BEGIN
+    SELECT Id, FirstName, MiddleName, LastName, MotherName, Gender, MobileNumber, Email, DateOfBirth, Address, Admission_Type, Registration_Number, Ranking, Category, Branch, Admission_year
+
+    FROM Students
+    WHERE Id = p_Id;
+END //
+
+
+
+
+
+
+
+
+
