@@ -1,9 +1,9 @@
 To set up the project on your local machine->
 
 .NET SDK (or whatever version you're using)
-Visual Studio 2022
-MySQL Workbench
-NuGet Package: MySql.Data
+:->Visual Studio 2022
+:->MySQL Workbench
+:->NuGet Package: MySql Connector/.net
 
 //--------------------------------------
 Open the solution in Visual Studio 2022:
