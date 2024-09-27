@@ -5,6 +5,16 @@ To set up the project on your local machine->
 :->MySQL Workbench
 :->NuGet Package: MySql Connector/.net
 
+//------------------------------------
+Installation Of MySql WorkBench->
+Go to the official MySQL website 
+Click the Downloads tab 
+Scroll down to MySQL Community (GPL) Downloads 
+Click MySQL Installer for Windows 
+Select your operating system 
+Download the file 
+Open the installer 
+
 //--------------------------------------
 Open the solution in Visual Studio 2022:
 
